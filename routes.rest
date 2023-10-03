@@ -1,0 +1,83 @@
+GET http://localhost:3000/words HTTP/1.1
+content-type: application/json
+
+###
+
+GET http://localhost:3000/words/6516197cb3562865 HTTP/1.1
+content-type: application/json
+
+###
+
+POST http://localhost:3000/words HTTP/1.1
+content-type: application/json
+
+{
+    "name": "airfoil",
+    "partSpeech":"noun",
+    "translation":"aerofólio",
+    "ipa":"ˈɛrˌfɔɪl",
+    "origin":"",
+    "comments":""
+}
+
+###
+PUT http://localhost:3000/words/6516197cb3670c0ab4562865 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "airfoil",
+    "meaning":"meaning",
+    "partSpeech":"noun",
+    "translation":"aerofólio",
+    "ipa":"ˈɛrˌfɔɪl",
+    "origin":"",
+    "comments":""
+}
+
+###
+DELETE http://localhost:3000/words/6516197cb3670c0ab4562865 HTTP/1.1
+content-type: application/json
+
+
+
+### ------------------------- PRODUCTION ROUTES ----------------------------- ###
+
+GET https://project3-5ag8.onrender.com/words HTTP/1.1
+content-type: application/json
+
+###
+
+GET https://project3-5ag8.onrender.com/words/651383e21c6bf1eb6d0b17a0 HTTP/1.1
+content-type: application/json
+
+###
+
+POST https://project3-5ag8.onrender.com/words HTTP/1.1
+content-type: application/json
+
+{
+    "name": "airfoil",
+    "partSpeech":"noun",
+    "translation":"aerofólio",
+    "ipa":"ˈɛrˌfɔɪl",
+    "origin":"",
+    "comments":""
+}
+
+###
+PUT https://project3-5ag8.onrender.com/words/6516197cb3670c0ab4562865 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "airfoil",
+    "meaning":"meaning",
+    "partSpeech":"noun",
+    "translation":"aerofólio",
+    "ipa":"ˈɛrˌfɔɪl",
+    "origin":"",
+    "comments":""
+}
+
+###
+DELETE https://project3-5ag8.onrender.com/words/6516197cb3670c0ab4562865 HTTP/1.1
+content-type: application/json
