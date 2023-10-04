@@ -12,7 +12,7 @@ dotenv.config();
 const port = process.env.PORT;
 
 app.use(bodyParser.json())
-// basic express session initialization
+    // basic express session initialization
     .use(session({
         secret: 'secret',
         resave: false,
@@ -29,6 +29,16 @@ app.use(bodyParser.json())
     .use('/', require('./routes'))
     .use(logError)
     .use(returnError);
+
+passport.use(new GitHubStrategy({
+        clientID: process.env.GITHUB_CLIENT_ID,
+        clientSecret: process.env.GITHUB_CLIENT_SECRET,
+        callback: process.env.CALLBACK_URL
+    },
+    function(accessToken, refreshToken, profile, done){
+        return done(null, profile);
+    }
+));
 
 process.on('uncaughtException', (err, origin) => {
     console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
