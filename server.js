@@ -4,6 +4,7 @@ const mongodb = require('./data/database');
 const bodyParser = require('body-parser');
 const { logError, returnError } = require('./middleware/errorHandler');
 const GitHubStrategy = require('passport-github2').Strategy;
+const session = require('express-session');
 const passport = require('passport');
 const cors = require('cors');
 
