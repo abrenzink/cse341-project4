@@ -3,18 +3,18 @@ const dotenv = require('dotenv');
 const mongodb = require('./data/database');
 const bodyParser = require('body-parser');
 const { logError, returnError } = require('./middleware/errorHandler');
-const GitHubStrategy = require('passport-github2').Strategy;
+
 const session = require('express-session');
 const passport = require('passport');
+const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
 
 const app = express();
 dotenv.config();
 const port = process.env.PORT;
 
-app.use(bodyParser.json())
-    // basic express session initialization
-    .use(session({
+// basic express session initialization
+app.use(session({
         secret: 'secret',
         resave: false,
         saveUninitialized: true,
@@ -22,21 +22,14 @@ app.use(bodyParser.json())
     // init passport on every route call
     .use(passport.initialize())
     // allow passport to use "express-session"
-    .use(passport.session())
-    .use((req, res, next) => {
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        next();
-    })
-    .use('/', require('./routes'))
-    .use(logError)
-    .use(returnError);
+    .use(passport.session());
 
-passport.use(new GitHubStrategy({
+    passport.use(new GitHubStrategy({
         clientID: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
         callback: process.env.CALLBACK_URL
     },
-    function(accessToken, refreshToken, profile, done){
+    (accessToken, refreshToken, profile, done) => {
         return done(null, profile);
     }
 ));
@@ -48,6 +41,16 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((user, done) => {
     done(null, user);
 });
+
+app.use(bodyParser.json())
+    .use((req, res, next) => {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        next();
+    })
+    .use('/', require('./routes'))
+    .use(logError)
+    .use(returnError);
+
 
 app.get('/', (req, res) => {res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : 'Logged Out')});
 
