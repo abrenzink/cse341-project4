@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const passpot = require('passport');
 
 router.use('/', require('./swagger'));
 router.use('/words', require('./words'));
