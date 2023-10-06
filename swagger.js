@@ -8,7 +8,7 @@ const doc = {
         title: 'BYU I - CSE341 - Project 4',
         description: 'Aviation dictionary API'
     },
-    host: 'project4-l231.onrender.com/',
+    host: 'project4-l231.onrender.com',
     schemes: ['https']
 };
 

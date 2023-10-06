@@ -5,7 +5,7 @@
     "description": "Aviation dictionary API",
     "version": "1.0.0"
   },
-  "host": "project4-l231.onrender.com/",
+  "host": "project4-l231.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
