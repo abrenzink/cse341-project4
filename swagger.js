@@ -5,11 +5,11 @@ const endpointsFiles = ['./routes/index.js'];
 
 const doc = {
     info: {
-        title: 'BYU I - CSE341 - Project 3',
+        title: 'BYU I - CSE341 - Project 4',
         description: 'Aviation dictionary API'
     },
-    host: 'project3-5ag8.onrender.com',
-    schemes: ['https', 'http']
+    host: 'project4-l231.onrender.com/',
+    schemes: ['https']
 };
 
 

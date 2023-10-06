@@ -1,15 +1,14 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "BYU I - CSE341 - Project 3",
+    "title": "BYU I - CSE341 - Project 4",
     "description": "Aviation dictionary API",
     "version": "1.0.0"
   },
-  "host": "project3-5ag8.onrender.com",
+  "host": "project4-l231.onrender.com/",
   "basePath": "/",
   "schemes": [
-    "https",
-    "http"
+    "https"
   ],
   "paths": {
     "/login": {
