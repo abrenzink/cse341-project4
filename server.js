@@ -13,6 +13,8 @@ const app = express();
 dotenv.config();
 const port = process.env.PORT;
 
+app.use(cors());
+
 // basic express session initialization
 app.use(bodyParser.json())
     .use(session({
